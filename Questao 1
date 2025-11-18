@@ -1,0 +1,31 @@
+public static int cadastrarPessoa(Pessoa[] v, int qtd) {
+    if (qtd == v.length) return qtd; // cheio
+
+    Pessoa p = new Pessoa();
+    java.util.Scanner sc = new java.util.Scanner(System.in);
+
+    // garantir nome único
+    while (true) {
+        System.out.print("Nome: ");
+        p.nome = sc.nextLine();
+        if (buscarPorNome(v, qtd, p.nome) == -1) break;
+        System.out.println("Nome já existe, digite outro.");
+    }
+
+    System.out.print("Idade: ");
+    p.idade = sc.nextInt();
+    System.out.print("Peso: ");
+    p.peso = sc.nextDouble();
+    System.out.print("Altura: ");
+    p.altura = sc.nextDouble();
+
+    v[qtd] = p;
+    return qtd + 1;
+}
+
+public static int buscarPorNome(Pessoa[] v, int qtd, String nome) {
+    for (int i = 0; i < qtd; i++)
+        if (v[i].nome.equals(nome))
+            return i;
+    return -1;
+}
