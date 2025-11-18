@@ -1,0 +1,11 @@
+public static void imprimirPessoas(Pessoa[] v, int qtd) {
+    for (int i = 0; i < qtd; i++) {
+        Pessoa p = v[i];
+        double imc = calcularIMC(p);
+        System.out.println(p.nome + " " + p.idade + " " + p.peso + " " + p.altura + " IMC=" + imc);
+    }
+}
+
+public static double calcularIMC(Pessoa p) {
+    return p.peso / (p.altura * p.altura);
+}
