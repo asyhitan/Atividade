@@ -1,0 +1,8 @@
+public static int contarIdosos(Pessoa[] v, int qtd) {
+    int cont = 0;
+    for (int i = 0; i < qtd; i++) {
+        if (v[i].idade > 60)
+            cont++;
+    }
+    return cont;
+}
